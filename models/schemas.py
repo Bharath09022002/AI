@@ -29,6 +29,8 @@ class Intent(str, Enum):
     TREND_COMPARISON = "trend_comparison"
     HABIT_SPECIFIC = "habit_specific"
     BURNOUT_CHECK = "burnout_check"
+    GREETING = "greeting"
+    CASUAL_CHAT = "casual_chat"
     GENERAL_ADVICE = "general_advice"
 
 

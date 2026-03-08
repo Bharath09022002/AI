@@ -71,6 +71,28 @@ _INTENT_PATTERNS: dict[Intent, list[tuple[str, int]]] = {
         (r"\bfatig\w*\b", 3), (r"\bbreak\b", 1), (r"\brest\b", 2),
         (r"\benergy\b", 2), (r"\bgive up\b", 3),
     ],
+    Intent.GREETING: [
+        (r"^hi\b", 5), (r"^hey\b", 5), (r"^hello\b", 5),
+        (r"^yo\b", 5), (r"^sup\b", 5), (r"^hola\b", 5),
+        (r"^greetings\b", 5), (r"^howdy\b", 5),
+        (r"\bgood morning\b", 5), (r"\bgood afternoon\b", 5),
+        (r"\bgood evening\b", 5), (r"\bgood night\b", 4),
+        (r"^what'?s up\b", 5), (r"^whats up\b", 5),
+        (r"^wassup\b", 5), (r"^hii+\b", 5), (r"^heyy+\b", 5),
+        (r"\bhow are you\b", 4), (r"\bwhat'?s good\b", 4),
+        (r"^jarvis\b", 4), (r"^j\.?a\.?r\.?v\.?i\.?s\b", 4),
+    ],
+    Intent.CASUAL_CHAT: [
+        (r"\bthank\w*\b", 4), (r"\bthanks\b", 4),
+        (r"\bbye\b", 4), (r"\bgoodbye\b", 4), (r"\bsee you\b", 4),
+        (r"\blater\b", 2), (r"\btake care\b", 4),
+        (r"\bwho are you\b", 5), (r"\bwhat are you\b", 5),
+        (r"\bwhat can you do\b", 5), (r"\bhelp\b", 3),
+        (r"\bwhat do you know\b", 5), (r"\btell me about yourself\b", 5),
+        (r"\byou'?re? (?:cool|awesome|great|amazing)\b", 4),
+        (r"\blol\b", 3), (r"\bhaha\b", 3), (r"\bnice\b", 2),
+        (r"\bokay\b", 2), (r"\bok\b", 2), (r"\bcool\b", 2),
+    ],
 }
 
 

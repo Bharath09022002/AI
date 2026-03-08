@@ -22,7 +22,17 @@ def generate_coaching(
     """
     Generate the coaching output: analysis, insights, suggestions, motivation.
     Uses a dynamic composition engine for unique, data-driven responses.
+    Handles greetings and casual chat conversationally.
     """
+
+    # ── Handle conversational intents first ───────────────────────────────
+    if intent == Intent.GREETING:
+        return _handle_greeting(stats, predictions)
+
+    if intent == Intent.CASUAL_CHAT:
+        return _handle_casual_chat(question, stats)
+
+    # ── Full analysis pipeline for data-driven intents ────────────────────
     analysis = _build_analysis(intent, question, stats, breakdown, predictions, entities)
     insights = _build_insights(patterns, breakdown, predictions, stats)
     suggestions = _build_suggestions(
@@ -35,6 +45,147 @@ def generate_coaching(
         "insights": insights,
         "suggestions": suggestions,
         "motivation": motivation,
+    }
+
+
+# ─── Conversational Handlers ─────────────────────────────────────────────────
+
+def _handle_greeting(stats: dict, predictions: dict) -> dict:
+    """
+    Handle casual greetings like 'hi', 'hello', 'hey'.
+    Responds like a living assistant — warm, brief, and offers help.
+    """
+    from datetime import datetime
+    hour = datetime.now().hour
+
+    # Time-aware greeting
+    if hour < 12:
+        time_greeting = "Good morning"
+    elif hour < 17:
+        time_greeting = "Good afternoon"
+    else:
+        time_greeting = "Good evening"
+
+    health = predictions.get("system_health_score", 50)
+    streak = stats.get("current_streak", "0 days")
+    grade = stats.get("consistency_grade", "N/A")
+
+    # Build a natural, warm greeting
+    greetings = [
+        (
+            f"{time_greeting}, Sir! J.A.R.V.I.S. at your service. "
+            f"Your system health is at {health:.0f}/100 today"
+            + (f" with a {streak} active streak. " if streak != "0 days" else ". ")
+            + "What are we looking at today — tracking habits, checking your health metrics, or something else?"
+        ),
+        (
+            f"{time_greeting}, Sir. All systems are online and ready. "
+            f"Quick status: Consistency grade is {grade}, streak at {streak}. "
+            "How can I assist you today? We could review your habits, analyze trends, "
+            "or I can run a full diagnostics report."
+        ),
+        (
+            f"{time_greeting}, Sir! Good to have you back. "
+            f"I've been monitoring your protocols — health score is {health:.0f}/100. "
+            "What would you like to focus on? I can analyze your habits, check for burnout signals, "
+            "review your streaks, or give you improvement tips."
+        ),
+    ]
+
+    analysis = random.choice(greetings)
+
+    # Offer quick action suggestions
+    suggestions = [
+        "Ask me 'How am I doing this week?' for a full weekly report.",
+        "Say 'Check my streaks' to see your streak analysis.",
+        "Try 'Am I burning out?' for a burnout and energy check.",
+        "Ask about a specific habit like 'How is my workout going?'",
+    ]
+
+    return {
+        "analysis": analysis,
+        "insights": [f"System health: {health:.0f}/100, Grade: {grade}, Streak: {streak}."],
+        "suggestions": random.sample(suggestions, min(3, len(suggestions))),
+        "motivation": random.choice([
+            "I'm here whenever you need me, Sir. Just say the word.",
+            "Standing by for your command, Sir. Let's make today count.",
+            "Ready to optimize your day, Sir. What's the mission?",
+        ]),
+    }
+
+
+def _handle_casual_chat(question: str, stats: dict) -> dict:
+    """
+    Handle casual messages like 'thanks', 'bye', 'who are you?', 'lol', etc.
+    """
+    q = question.lower().strip()
+
+    # Thank you responses
+    if any(w in q for w in ["thank", "thanks"]):
+        return {
+            "analysis": random.choice([
+                "You're welcome, Sir. That's what I'm here for. Anything else I can help with?",
+                "My pleasure, Sir. Always happy to run the numbers for you. Need anything else?",
+                "Glad I could help, Sir. Your protocols are in good hands. What's next?",
+            ]),
+            "insights": [],
+            "suggestions": ["Ask me anything about your habits, streaks, or performance!"],
+            "motivation": "I'm always here, Sir. Just say the word.",
+        }
+
+    # Goodbye responses
+    if any(w in q for w in ["bye", "goodbye", "see you", "later", "take care"]):
+        streak = stats.get("current_streak", "0 days")
+        return {
+            "analysis": random.choice([
+                f"Until next time, Sir. Your {streak} streak is counting on you — don't let it down!",
+                f"Signing off, Sir. Remember, consistency compounds. See you tomorrow. Active streak: {streak}.",
+                "Goodbye, Sir. I'll keep monitoring the systems. Come back anytime you need a status update!",
+            ]),
+            "insights": [],
+            "suggestions": ["Come back anytime for a quick status check!"],
+            "motivation": "Take care of yourself, Sir. The protocols will be here when you return.",
+        }
+
+    # Who are you / what can you do
+    if any(phrase in q for phrase in ["who are you", "what are you", "what can you do", "tell me about yourself", "what do you know"]):
+        return {
+            "analysis": (
+                "I am J.A.R.V.I.S. — your personal AI coaching system, Sir. "
+                "I analyze your habit tracking data to detect patterns, predict risks, "
+                "and provide intelligent coaching. Here's what I can do:\n\n"
+                "📊 **Weekly Reviews** — Full performance diagnostics\n"
+                "🔥 **Streak Analysis** — Track and protect your streaks\n"
+                "📈 **Trend Comparison** — See what's improving or declining\n"
+                "⚠️ **Burnout Detection** — I monitor your energy levels\n"
+                "💡 **Improvement Tips** — Data-driven suggestions\n"
+                "🎯 **Habit Deep Dives** — Ask about any specific habit\n\n"
+                "I use advanced analytics including momentum scoring, "
+                "habit correlations, consistency grading, and predictive modeling — "
+                "all running locally without any external AI dependencies."
+            ),
+            "insights": ["I process your tracking data using pattern detection, trend analysis, and risk prediction."],
+            "suggestions": [
+                "Try asking 'How am I doing this week?'",
+                "Ask 'What are my worst habits?' for failure analysis.",
+                "Say 'Am I burning out?' to check your energy levels.",
+            ],
+            "motivation": "Think of me as your personal performance analyst, Sir. Always on duty.",
+        }
+
+    # Generic casual response (lol, nice, ok, cool, etc.)
+    return {
+        "analysis": random.choice([
+            "I appreciate the chill conversation, Sir! But I'm at my best when crunching your data. Want me to run a quick analysis?",
+            "Haha, noted, Sir. Shall we get down to business? I can pull up your latest performance metrics.",
+            "Copy that, Sir. Whenever you're ready, just ask me about your habits, streaks, or trends!",
+        ]),
+        "insights": [],
+        "suggestions": [
+            "Ask me 'How am I doing?' for a quick overview.",
+            "Say 'Check my streaks' for streak analysis.",
+        ],
+        "motivation": "I'm here and ready, Sir. Let's make today productive!",
     }
 
 
