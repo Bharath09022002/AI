@@ -1,0 +1,381 @@
+[
+    {
+        "_comment": "Example 1: Weekly review",
+        "request": {
+            "question": "How am I doing this week?",
+            "tracker_data": [
+                {
+                    "date": "2026-03-08",
+                    "task": "Workout",
+                    "completed": true,
+                    "streak": 5,
+                    "category": "fitness"
+                },
+                {
+                    "date": "2026-03-07",
+                    "task": "Workout",
+                    "completed": true,
+                    "streak": 4,
+                    "category": "fitness"
+                },
+                {
+                    "date": "2026-03-06",
+                    "task": "Workout",
+                    "completed": true,
+                    "streak": 3,
+                    "category": "fitness"
+                },
+                {
+                    "date": "2026-03-08",
+                    "task": "Reading",
+                    "completed": false,
+                    "streak": 0,
+                    "category": "study"
+                },
+                {
+                    "date": "2026-03-07",
+                    "task": "Reading",
+                    "completed": true,
+                    "streak": 2,
+                    "category": "study"
+                },
+                {
+                    "date": "2026-03-06",
+                    "task": "Reading",
+                    "completed": false,
+                    "streak": 0,
+                    "category": "study"
+                },
+                {
+                    "date": "2026-03-08",
+                    "task": "Meditation",
+                    "completed": true,
+                    "streak": 10,
+                    "category": "health"
+                },
+                {
+                    "date": "2026-03-07",
+                    "task": "Meditation",
+                    "completed": true,
+                    "streak": 9,
+                    "category": "health"
+                },
+                {
+                    "date": "2026-03-06",
+                    "task": "Meditation",
+                    "completed": true,
+                    "streak": 8,
+                    "category": "health"
+                },
+                {
+                    "date": "2026-03-05",
+                    "task": "Meditation",
+                    "completed": true,
+                    "streak": 7,
+                    "category": "health"
+                }
+            ]
+        },
+        "example_response": {
+            "analysis": "This week you're at 70.0% completion rate with an overall success rate of 70.0%. Your current streak stands at 1 days. Looking stable — keep going! Let me break down what's working and what needs attention.",
+            "statistics": {
+                "success_rate": "70.0%",
+                "current_streak": "1 days",
+                "longest_streak": "4 days",
+                "weekly_performance": "70.0%",
+                "monthly_performance": "70.0%",
+                "total_habits_tracked": 3,
+                "habit_difficulty_scores": {
+                    "Workout": 2.5,
+                    "Reading": 6.8,
+                    "Meditation": 1.2
+                }
+            },
+            "insights": [
+                "These habits have less than 50% success rate: Reading. Consider simplifying them or adjusting your goals.",
+                "Your health habits are your strongest category (avg 100% success) — well done!",
+                "Big gap between your strongest habit (Meditation at 100%) and weakest (Reading at 33.3%). Consider giving extra attention to the weaker one."
+            ],
+            "suggestions": [
+                "Set a daily reminder for Reading at a time when you're most likely to follow through.",
+                "If you're missing Reading often, try moving it to a different time of day when you have more energy.",
+                "Don't forget to celebrate your Meditation streak! Acknowledging progress fuels motivation."
+            ],
+            "motivation": "You're building incredible momentum! Every completed habit is a vote for the person you're becoming. Stay locked in — greatness is a habit. 🔥"
+        }
+    },
+    {
+        "_comment": "Example 2: Failure analysis",
+        "request": {
+            "question": "What habits am I failing the most?",
+            "tracker_data": [
+                {
+                    "date": "2026-03-08",
+                    "task": "Workout",
+                    "completed": false,
+                    "streak": 0,
+                    "category": "fitness"
+                },
+                {
+                    "date": "2026-03-07",
+                    "task": "Workout",
+                    "completed": false,
+                    "streak": 0,
+                    "category": "fitness"
+                },
+                {
+                    "date": "2026-03-06",
+                    "task": "Workout",
+                    "completed": true,
+                    "streak": 1,
+                    "category": "fitness"
+                },
+                {
+                    "date": "2026-03-05",
+                    "task": "Workout",
+                    "completed": false,
+                    "streak": 0,
+                    "category": "fitness"
+                },
+                {
+                    "date": "2026-03-08",
+                    "task": "Coding",
+                    "completed": true,
+                    "streak": 3,
+                    "category": "productivity"
+                },
+                {
+                    "date": "2026-03-07",
+                    "task": "Coding",
+                    "completed": true,
+                    "streak": 2,
+                    "category": "productivity"
+                },
+                {
+                    "date": "2026-03-06",
+                    "task": "Coding",
+                    "completed": true,
+                    "streak": 1,
+                    "category": "productivity"
+                },
+                {
+                    "date": "2026-03-08",
+                    "task": "Sleep Early",
+                    "completed": false,
+                    "streak": 0,
+                    "category": "health"
+                },
+                {
+                    "date": "2026-03-07",
+                    "task": "Sleep Early",
+                    "completed": false,
+                    "streak": 0,
+                    "category": "health"
+                },
+                {
+                    "date": "2026-03-06",
+                    "task": "Sleep Early",
+                    "completed": false,
+                    "streak": 0,
+                    "category": "health"
+                },
+                {
+                    "date": "2026-03-05",
+                    "task": "Sleep Early",
+                    "completed": true,
+                    "streak": 1,
+                    "category": "health"
+                }
+            ]
+        },
+        "example_response": {
+            "analysis": "Your most challenging habits right now are: Sleep Early, Workout. These have below 50% success rates. Your overall rate is 45.5%. Let's figure out what's going wrong and how to fix it.",
+            "statistics": {
+                "success_rate": "45.5%",
+                "current_streak": "0 days",
+                "longest_streak": "3 days",
+                "weekly_performance": "45.5%",
+                "monthly_performance": "45.5%",
+                "total_habits_tracked": 3,
+                "habit_difficulty_scores": {
+                    "Sleep Early": 8.2,
+                    "Workout": 7.1,
+                    "Coding": 1.0
+                }
+            },
+            "insights": [
+                "These habits have less than 50% success rate: Sleep Early, Workout.",
+                "Streak break risk is 60% — your recent activity shows a dip that could snowball.",
+                "Your productivity habits are your strongest category (avg 100% success) — well done!"
+            ],
+            "suggestions": [
+                "Try reducing the goal for Sleep Early — start with a smaller target to rebuild consistency.",
+                "Morning habits tend to have higher completion rates. Consider shifting Workout to the morning.",
+                "Your streak is at risk. Focus on completing just ONE habit today — that alone can reset your momentum."
+            ],
+            "motivation": "You're not failing — you're learning what works and what doesn't. That's the most valuable data of all. Let's adjust and come back stronger."
+        }
+    },
+    {
+        "_comment": "Example 3: Burnout check",
+        "request": {
+            "question": "I feel tired and stressed, am I burning out?",
+            "tracker_data": [
+                {
+                    "date": "2026-03-08",
+                    "task": "Workout",
+                    "completed": false,
+                    "streak": 0,
+                    "category": "fitness"
+                },
+                {
+                    "date": "2026-03-07",
+                    "task": "Workout",
+                    "completed": false,
+                    "streak": 0,
+                    "category": "fitness"
+                },
+                {
+                    "date": "2026-03-06",
+                    "task": "Workout",
+                    "completed": false,
+                    "streak": 0,
+                    "category": "fitness"
+                },
+                {
+                    "date": "2026-03-05",
+                    "task": "Workout",
+                    "completed": true,
+                    "streak": 7,
+                    "category": "fitness"
+                },
+                {
+                    "date": "2026-03-04",
+                    "task": "Workout",
+                    "completed": true,
+                    "streak": 6,
+                    "category": "fitness"
+                },
+                {
+                    "date": "2026-03-03",
+                    "task": "Workout",
+                    "completed": true,
+                    "streak": 5,
+                    "category": "fitness"
+                },
+                {
+                    "date": "2026-03-02",
+                    "task": "Workout",
+                    "completed": true,
+                    "streak": 4,
+                    "category": "fitness"
+                }
+            ]
+        },
+        "example_response": {
+            "analysis": "I'm seeing signs that you might be pushing too hard. Your motivation risk score is elevated at 65%. Your body and mind need recovery to perform at their best.",
+            "statistics": {
+                "success_rate": "57.1%",
+                "current_streak": "0 days",
+                "longest_streak": "4 days",
+                "weekly_performance": "57.1%",
+                "monthly_performance": "57.1%",
+                "total_habits_tracked": 1,
+                "habit_difficulty_scores": {
+                    "Workout": 6.5
+                }
+            },
+            "insights": [
+                "Possible burnout detected! Your completion dropped 100% in the last few days after a strong streak. Consider taking a rest day or reducing habit difficulty.",
+                "Streak break risk is 85% — your recent activity shows a dip that could snowball."
+            ],
+            "suggestions": [
+                "Consider adding a planned rest day to avoid burnout. Sustainable consistency beats short bursts.",
+                "Try reducing the goal for Workout — start with a smaller target to rebuild consistency."
+            ],
+            "motivation": "Every expert was once a beginner. The fact that you're tracking your habits means you're already ahead of 90% of people. Keep showing up — consistency compounds. 💪"
+        }
+    },
+    {
+        "_comment": "Example 4: Improvement advice",
+        "request": {
+            "question": "How can I improve my productivity?",
+            "tracker_data": [
+                {
+                    "date": "2026-03-08",
+                    "task": "Deep Work",
+                    "completed": true,
+                    "streak": 3,
+                    "category": "productivity"
+                },
+                {
+                    "date": "2026-03-07",
+                    "task": "Deep Work",
+                    "completed": true,
+                    "streak": 2,
+                    "category": "productivity"
+                },
+                {
+                    "date": "2026-03-06",
+                    "task": "Deep Work",
+                    "completed": false,
+                    "streak": 0,
+                    "category": "productivity"
+                },
+                {
+                    "date": "2026-03-05",
+                    "task": "Deep Work",
+                    "completed": true,
+                    "streak": 1,
+                    "category": "productivity"
+                },
+                {
+                    "date": "2026-03-08",
+                    "task": "Journaling",
+                    "completed": true,
+                    "streak": 5,
+                    "category": "mindfulness"
+                },
+                {
+                    "date": "2026-03-07",
+                    "task": "Journaling",
+                    "completed": true,
+                    "streak": 4,
+                    "category": "mindfulness"
+                },
+                {
+                    "date": "2026-03-06",
+                    "task": "Journaling",
+                    "completed": true,
+                    "streak": 3,
+                    "category": "mindfulness"
+                }
+            ]
+        },
+        "example_response": {
+            "analysis": "With a 85.7% overall success rate and 85.7% this week, you have good momentum. I've analyzed your patterns and have some targeted suggestions to help you level up.",
+            "statistics": {
+                "success_rate": "85.7%",
+                "current_streak": "2 days",
+                "longest_streak": "3 days",
+                "weekly_performance": "85.7%",
+                "monthly_performance": "85.7%",
+                "total_habits_tracked": 2,
+                "habit_difficulty_scores": {
+                    "Deep Work": 4.2,
+                    "Journaling": 1.0
+                }
+            },
+            "insights": [
+                "Great progress on: Deep Work! Your recent performance is trending upward.",
+                "Your mindfulness habits are your strongest category (avg 100% success) — well done!"
+            ],
+            "suggestions": [
+                "Don't forget to celebrate your Journaling streak! Acknowledging progress fuels motivation.",
+                "Track your wins at the end of each day. Reflection boosts motivation and self-awareness.",
+                "Find an accountability partner for your weakest habits. Social commitment increases follow-through by up to 65%."
+            ],
+            "motivation": "You're building incredible momentum! Every completed habit is a vote for the person you're becoming. Stay locked in — greatness is a habit. 🔥"
+        }
+    }
+]
